@@ -7,4 +7,4 @@ This project demonstrates:
 3. Git commits
 4. GitHub repository connection
 5. Branching and merging
-6. Version control
+6. Version controlPull Request practical completed.
