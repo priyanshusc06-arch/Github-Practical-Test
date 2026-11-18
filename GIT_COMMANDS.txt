@@ -1,0 +1,94 @@
+GIT & GITHUB PRACTICAL — COMMAND GUIDE
+=====================================
+
+1) Create a NEW repository on GitHub named exactly:
+   GitHub practical test
+   Do not add a README on GitHub (we already have one locally).
+
+2) Open terminal / Git Bash inside this project folder.
+   Set your Git identity once if Git asks:
+   git config --global user.name "Your Name"
+   git config --global user.email "your-github-email@example.com"
+
+3) Initial main branch: create at least 3 meaningful commits.
+   git init
+   git branch -M main
+   git add index.html style.css
+   git commit -m "Add initial portfolio structure and styling"
+   git add script.js
+   git commit -m "Add dark and light mode interaction"
+   git add README.md
+   git commit -m "Add project README and student details"
+
+4) Connect and push main (replace YOUR_USERNAME):
+   git remote add origin https://github.com/YOUR_USERNAME/GitHub-practical-test.git
+   git push -u origin main
+
+5) Create feature-navbar from main:
+   git switch -c feature-navbar
+   Now edit index.html: immediately after <body>, before <main>, add:
+   <nav class="navbar">
+     <a class="brand" href="#home">Priyanshu</a>
+     <div class="nav-links">
+       <a href="#about">About</a>
+       <a href="#skills">Skills</a>
+       <a href="#projects">Goal</a>
+       <a href="#contact">Contact</a>
+     </div>
+   </nav>
+   Add this at the END of style.css:
+   .navbar {
+     display: flex; justify-content: space-between; align-items: center;
+     gap: 20px; padding: 18px 10%; background: white;
+   }
+   .brand { color: #3157c8; font-weight: bold; text-decoration: none; }
+   .nav-links { display: flex; flex-wrap: wrap; gap: 18px; }
+   .nav-links a { color: #202438; text-decoration: none; font-weight: bold; }
+   .nav-links a:hover { color: #3157c8; }
+   body.dark .navbar { background: #222a40; }
+   body.dark .nav-links a { color: #edf0ff; }
+   @media (max-width: 600px) {
+     .navbar { padding: 16px 7%; flex-direction: column; }
+   }
+   Then commit and push:
+   git add index.html style.css
+   git commit -m "Add responsive navigation bar"
+   git push -u origin feature-navbar
+
+6) Create feature-footer from main (IMPORTANT: switch back to main first):
+   git switch main
+   git switch -c feature-footer
+   Now edit index.html: immediately before </body>, after </main>, add:
+   <footer class="footer">
+     <p>© 2026 Priyanshu Singh Chauhan. Built with HTML, CSS and JavaScript.</p>
+   </footer>
+   Add this at the END of style.css:
+   .footer {
+     padding: 24px 10%; text-align: center;
+     color: white; background: #202438;
+   }
+   body.dark .footer { background: #0d1120; }
+   Then commit and push:
+   git add index.html style.css
+   git commit -m "Add portfolio footer"
+   git push -u origin feature-footer
+
+7) Merge both feature branches into main:
+   git switch main
+   git merge feature-navbar
+   git merge feature-footer
+   git push origin main
+
+8) Verify on GitHub:
+   - main contains index.html, style.css, script.js and README.md
+   - Commits page shows at least 3 meaningful commits
+   - Branches page shows feature-navbar and feature-footer
+   - Both feature branches have been merged into main
+   - Open index.html / the live page and check navbar and footer are visible
+
+NOTES:
+- Replace the sample email and GitHub username in index.html with your own.
+- Replace URN, semester and section in README.md.
+- Keep the repository name exactly "GitHub practical test" as required by the assignment.
+- GitHub may display the repository URL with hyphens even if the repository name was entered with spaces.
+- Do not run the merge commands until both feature branches have been pushed.
